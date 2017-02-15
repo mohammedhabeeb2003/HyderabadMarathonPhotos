@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "591121919927",
+    "firebase_url": "https://marathonphotos-b4348.firebaseio.com",
+    "project_id": "marathonphotos-b4348",
+    "storage_bucket": "marathonphotos-b4348.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591121919927:android:913ce4e65cd29885",
+        "android_client_info": {
+          "package_name": "com.pingala.marathonphotos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591121919927-2e6amt0k17fubc26mve0n9rhvcklqlti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLZlvX62k_VeaqMMH5k9Od8kPvIGX0AvI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591121919927:android:a86bad074a9cc4df",
+        "android_client_info": {
+          "package_name": "com.pingala.hyderabadmarathonphotos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591121919927-anc619rr13n1kgicnapc17o3fl8f1m36.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pingala.hyderabadmarathonphotos",
+            "certificate_hash": "E832C3E4F2D5AFD37EEDF33826636066ED63E9A0"
+          }
+        },
+        {
+          "client_id": "591121919927-2e6amt0k17fubc26mve0n9rhvcklqlti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLZlvX62k_VeaqMMH5k9Od8kPvIGX0AvI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591121919927-2e6amt0k17fubc26mve0n9rhvcklqlti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
