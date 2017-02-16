@@ -33,13 +33,18 @@ public class StaggeredGridLayoutAdapter extends CustomRecyclerViewAdapter {
     public StaggeredGridLayoutAdapter(Activity activity, ArrayList<Images> images) {
         this.activity = activity;
         this.images = images;
+try {
+    WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+    Display display = wm.getDefaultDisplay();
+    Point size = new Point();
+    display.getSize(size);
+    screenWidth = size.x;
+    screenHeight = size.x;
+}
+catch (Exception e){
 
-        WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        screenWidth = size.x;
-        screenHeight = size.x;
+
+}
     }
 
     @Override

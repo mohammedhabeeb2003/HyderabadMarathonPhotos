@@ -235,15 +235,18 @@ public class SlidingSearchResultsFragment extends BaseFragment {
                         im.setImgUrl(imgUrl);
                         mImageList.add(im);
                     }
+                     try {
+                         recyclerViewMain.setHasFixedSize(true);
+                         mLayoutManager = new StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL);
+                         recyclerViewMain.setLayoutManager(mLayoutManager);
+                         adapter = new StaggeredGridLayoutAdapter(getActivity(), mImageList);
+                         recyclerViewMain.setAdapter(adapter);
+                         adapter.notifyDataSetChanged();
+                         Log.e("List", "" + mImageList.size() + mImageList.get(0).getImgUrl());
+                     }
+                     catch (Exception e){
 
-                        recyclerViewMain.setHasFixedSize(true);
-                        mLayoutManager = new StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL);
-                        recyclerViewMain.setLayoutManager(mLayoutManager);
-                        adapter = new StaggeredGridLayoutAdapter(getActivity(), mImageList);
-                        recyclerViewMain.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
-                        Log.e("List", "" + mImageList.size() + mImageList.get(0).getImgUrl());
-
+                     }
                     /*pd.dismiss();*/
                 }
 

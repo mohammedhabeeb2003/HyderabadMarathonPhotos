@@ -34,10 +34,13 @@ public class MainActivity extends AppCompatActivity  implements BaseFragment.Bas
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        memberId = getIntent().getStringArrayListExtra("memberId");
          /*  NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 */
-        new MemberIdTask().execute();
+        if(!memberId.isEmpty()){
+            showFragment(new SlidingSearchResultsFragment(),memberId);
+        }
 
     }
 
@@ -50,10 +53,19 @@ public class MainActivity extends AppCompatActivity  implements BaseFragment.Bas
         List fragments = getSupportFragmentManager().getFragments();
         BaseFragment currentFragment = (BaseFragment) fragments.get(fragments.size() - 1);
 
-        if (!currentFragment.onActivityBackPress()) {
-            super.onBackPressed();
-        }
+         if (!currentFragment.onActivityBackPress()) {
+             finish();
+         }
+        else{
+             if (currentFragment.onActivityBackPress()) {
+                 finish();
+             }
+         }
+
+
     }
+
+
     /*@Override
    public boolean onNavigationItemSelected(MenuItem menuItem) {
        mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -82,51 +94,5 @@ public class MainActivity extends AppCompatActivity  implements BaseFragment.Bas
            fragment.setArguments(bundle);
     }
 
-    class MemberIdTask extends AsyncTask<Void,Void,Void>{
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef;
-        TinyDB tydb;
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pd = new ProgressDialog(MainActivity.this);
-            pd.setMessage("Loading...");
-            pd.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            myRef = database.getReferenceFromUrl("https://marathonphotos-b4348.firebaseio.com/MemberList");
-            myRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                      memberId = new ArrayList();
-                    for(DataSnapshot data: dataSnapshot.getChildren()){
-
-                       String members = data.child("memberId").getValue(String.class);
-                        memberId.add(members);
-                    }
-                    if(!memberId.isEmpty()) {
-                        pd.dismiss();
-                        showFragment(new SlidingSearchResultsFragment(), memberId);
-                    }
-                    Log.e("MemberId",""+memberId.size());
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-
-
-        }
-    }
 }

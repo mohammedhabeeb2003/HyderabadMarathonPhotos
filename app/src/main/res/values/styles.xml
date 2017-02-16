@@ -4,7 +4,7 @@
     </style>
 
     <style name="Base.Theme.FloatingSearchDemo" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimary">#123</item>
     </style>
 
 </resources>
